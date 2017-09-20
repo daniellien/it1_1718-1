@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,800');        .oppgave{
+    margin-left: 10px;
+}
+
+body{
+    background: #e6e4f9;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    width: 800px;
+    margin: auto    ;
+}
+
+h1{
+    text-align: center;
+}
+h2{
+    color: #3b8054;
+    font-weight: 700;
+}
+h4 {
+    color: #bd3bff;
+}
+p{
+    color: #515151;
+}
+
+
+.overskrifter{
+    margin-left: 20px;
+}
+.overskrifter h1{
+    color: goldenrod;
+    text-align: left;
+}
+.overskrifter h2{
+    color: firebrick;
+}
+.overskrifter h3{
+    color: #bd3bff;
+}
+.overskrifter h4{
+    color: coral;
+}
+.overskrifter h5{
+    color: cadetblue;
+}
