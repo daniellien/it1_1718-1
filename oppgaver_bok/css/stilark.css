@@ -24,6 +24,13 @@ p{
     color: #515151;
 }
 
+.tabell a{
+    text-decoration: none;
+    color: #033b42;
+}
+.tabell img{
+    width: 40px;
+}
 
 .overskrifter{
     margin-left: 20px;
