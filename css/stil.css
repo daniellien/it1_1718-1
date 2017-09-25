@@ -19,17 +19,17 @@ h2{
     text-transform: uppercase;
     color: palevioletred;
     letter-spacing: 2px;
-    width: 100%;
-    padding: 0px 0px;
-    margin: 8px 0px;
+    width: 300px;
+    padding: 10px 0px;
+    margin: auto;
+    border: 3px solid palevioletred;
+    border-radius: 13px;
+
 
 }
 
-div.velkommen{
-    border: 3px solid palevioletred;
-    border-radius: 13px;
-    max-width: 300px;
-    margin: auto;
+a.velkommen{
+    text-decoration: none;
 }
 
 div.velkommen:hover{

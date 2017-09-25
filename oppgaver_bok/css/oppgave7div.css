@@ -1,0 +1,20 @@
+.div1{
+
+    width: 300px;
+    background-color: palevioletred;
+    margin: 30px 70px;
+    padding: 10px;
+    border: 10px dashed goldenrod;
+
+}
+
+.div2{
+
+    width: 400px;
+    margin: 20px auto;
+    background-color: #3b8054;
+    padding: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px #033b42;
+}
