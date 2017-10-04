@@ -1,0 +1,30 @@
+body{
+    background-color: #3b8054;
+    font-family: sans-serif;
+    color: #033b42;
+}
+div.pakker{
+    width: 850px;
+    margin: auto;
+    background-color: #cfdade;
+}
+h1{
+    text-align: center;
+}
+
+nav{
+    background-color: #033b42;
+}
+
+nav ul{
+    list-style: none;
+}
+
+nav ul li{
+    display: inline;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #cfdade;
+}
