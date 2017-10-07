@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<p id="tall">TALL</p>
+
+<p id="tegn"></p>
+
+
+<script>
+
+    var tall = document.querySelector('#tall');
+    var ascii = document.querySelector('#tegn');
+
+
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        if (evt.keyCode === 65)
+        {
+            tall.style.color = "red";
+            tall.innerHTML = "A";
+        }
+        else
+        {
+            tall.style.color = "green";
+            tall.innerHTML = "Ikke A";
+        }
+    };
+
+
+    for(var i = 32; i<127; i++){
+        ascii.innerHTML += "&#"+i + " ";
+
+    }
+
+</script>
+
+</body>
+</html>
