@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sideoppsett</title>
+
+    <style>
+        body{
+            margin: 0;
+            text-align: center;
+        }
+        div.grid{
+            display: grid;
+            grid-template-areas:
+                    "header"
+                    "nav"
+                    "main"
+                    "aside1"
+                    "aside2"
+                    "footer";
+            grid-gap: 1px;
+
+        }
+        div.header{
+            background-color: #3b8054;
+            grid-area: header;
+        }
+        div.nav{
+            background-color: #7accc8;
+            grid-area: nav;
+        }
+        div.main{
+            background-color: #4aaaa5;
+            grid-area: main;
+            padding: 10px;
+        }
+        div.aside1{
+            background-color: #28abe3;
+            grid-area: aside1;
+        }
+        div.aside2{
+            background-color: #3fe3c6;
+            grid-area: aside2;
+        }
+        div.footer{
+            background-color: #033b42;
+            color: #a3d39c;
+            grid-area: footer;
+        }
+
+        @media (min-width: 500px) {
+            div.grid{
+                grid-template-columns: 1fr 3fr;
+                grid-template-areas:
+                        "header header"
+                        "nav    nav"
+                        "aside1 main"
+                        "aside2 footer";
+            }
+        }
+
+        @media (min-width: 700px) {
+            div.grid{
+                grid-template-columns: 1fr 4fr 1fr;
+                grid-template-areas:
+                        "header header  header"
+                        "nav    main    aside1"
+                        "nav    main    aside2"
+                        "footer footer  footer"
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="grid">
+        <div class="header">
+            Header
+        </div>
+
+        <div class="nav">
+            Nav
+        </div>
+
+        <div class="main">
+            <h1>Main</h1>
+            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci corporis dolor eaque enim eos est expedita facilis nam, nesciunt odio placeat porro quam quis rem sapiente sit ullam ut, voluptate.</span><span>Autem et expedita laborum minus natus non pariatur, quaerat quo? Animi atque culpa, cumque debitis deserunt doloribus eius illum impedit, inventore molestiae mollitia numquam quisquam quo rem repellat, sequi voluptatem.</span></p>
+        </div>
+
+        <div class="aside1">
+            Aside1
+        </div>
+        <div class="aside2">
+            Aside2
+        </div>
+
+        <div class="footer">
+            Footer
+        </div>
+
+    </div>
+
+</body>
+</html>
