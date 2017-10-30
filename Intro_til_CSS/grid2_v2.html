@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        body{
+            margin: 0;
+            background-color: black;
+        }
+
+        div.grid{
+            display: grid;
+            grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "aside1"
+            "aside2"
+            "footer"
+        ;
+            grid-gap: 1px;
+
+        }
+
+        div.header{
+            background-color: #a3d39c;
+            grid-area: header;
+        }
+
+        div.nav{
+            background-color: #28abe3;
+            grid-area: nav;
+        }
+
+        div.main{
+            background-color: #4aaaa5;
+            grid-area: main;
+        }
+
+        div.aside1{
+            background-color: #7accc8;
+            grid-area: aside1;
+        }
+
+        div.aside2{
+            background-color: #3b8054;
+            grid-area: aside2;
+        }
+
+        div.footer{
+            background-color: #033b42;
+            color: white;
+            grid-area: footer;
+        }
+
+        @media (min-width: 500px) {
+            div.grid{
+                grid-template-columns: 1fr 3fr;
+                grid-template-areas:
+                        "header header"
+                        "nav    nav"
+                        "aside1 main"
+                        "aside2 footer";
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="grid">
+
+    <div class="header">
+        <h1>Grid-side</h1>
+    </div>
+
+    <div class="nav">
+        Meny
+    </div>
+
+    <div class="main">
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid consequuntur explicabo necessitatibus
+            officia? Accusamus alias animi beatae, deleniti in magni, nesciunt possimus quae repellat sunt suscipit
+            veniam veritatis voluptas voluptates.</p>
+        <p>Aliquam at cum eius hic pariatur placeat possimus reprehenderit sed. Delectus dignissimos, eos laborum
+            molestias mollitia nisi placeat possimus quis reiciendis, reprehenderit rerum sequi, tenetur? Deleniti
+            doloremque fuga ipsa reiciendis.</p>
+
+    </div>
+
+    <div class="aside1">
+s
+    </div>
+
+    <div class="aside2">
+f
+    </div>
+
+    <div class="footer">
+        i
+    </div>
+
+</div>
+
+</body>
+</html>
