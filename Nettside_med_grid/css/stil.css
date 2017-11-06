@@ -2,6 +2,21 @@
 body{
     margin: 0;
 }
+p::first-letter{
+    font-size: 200%;
+    color: #033b42;
+}
+
+div.main img{
+    width: 50px;
+}
+
+img.venstre{
+    float: left;
+}
+img.hoyre{
+    float: right;
+}
 
 .grid {
     max-width: 1024px;
@@ -78,6 +93,9 @@ nav a:hover{
             "footer";
 }
 @media (min-width: 500px) {
+    div.main img{
+        width: 100px;
+    }
     .grid {
         grid-template-columns: 1fr 3fr;
         grid-template-areas:
@@ -93,6 +111,9 @@ nav a:hover{
     }
 }
 @media (min-width: 700px) {
+    div.main img{
+        width: 150px;
+    }
     .grid {
         grid-template-columns: 1fr 4fr 1fr;
         grid-template-areas:
