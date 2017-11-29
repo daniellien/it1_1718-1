@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quarySelector</title>
+
+    <style>
+
+        .red{
+            color: red;
+            background-color: #033b42;
+        }
+        .green{
+            color:green;
+            background-color: #a3d39c;
+        }
+        .blue{
+            color:blue;
+        }
+
+    </style>
+
+</head>
+<body>
+
+        <div id="boks">Hei</div>
+
+        <div id="tall"></div>
+
+        <script>
+
+            document.querySelector('#boks').innerHTML = "Molde vgs.";
+
+
+            //løkke  eller for-løkke
+
+            for(var i = 1; i<=1000; i++)
+            {
+
+
+                if(i%3==0)
+                {
+                    document.querySelector('#tall').innerHTML += "<span class='red'>" + i + "</span>"+ " ";
+                }
+                else if(i%11==0)
+                {
+                    document.querySelector('#tall').innerHTML += "<span class='green'>" + i + "</span>"+ " ";
+
+                }
+                else{
+                    document.querySelector('#tall').innerHTML += "<span>" + i + "</span>"+ " ";
+                }
+                if(i%10==0){
+                    document.querySelector('#tall').innerHTML += "<br>"
+                }
+            }
+
+
+
+
+
+        </script>
+
+</body>
+</html>
