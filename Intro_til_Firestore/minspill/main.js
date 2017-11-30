@@ -15,6 +15,8 @@ var ref = db.collection("brukere");
 var orderQuaery = ref.orderBy("poeng", "desc");
 
 orderQuaery.onSnapshot(function(data){
+    poenglisteE.innerHTML = "";
+    var objekt = data.docs;
     for(var x in objekt)
         poenglisteE.innerHTML += "<li>" + objekt[x].data().navn + " " +  objekt[x].data().poeng + "</li>";
 });
