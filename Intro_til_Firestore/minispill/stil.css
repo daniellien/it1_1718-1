@@ -19,7 +19,7 @@ body{
             "klikk klikk"
             "liste liste"
 ;
-    grid-gap: 1px;
+    grid-gap: 3px;
 }
 
 .header{
@@ -71,6 +71,7 @@ button.start{
     background-color: #3b8054;
     color: white;
     font-size: 30px;
+    border-radius: 5px;
 }
 .liste{
     grid-area: liste;
