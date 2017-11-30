@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body{
+    margin: 0;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+
+}
+.pakker{
+    max-width: 500px;
+    margin: auto;
+    display: grid;
+    grid-template-areas:
+            "header"
+            "intro"
+            "klikkverdi"
+            "klikk"
+            "liste"
+
+;
+    grid-gap: 1px;
+}
+
+.header{
+    grid-area: header;
+}
+.intro{
+    grid-area: intro;
+}
+
+.intro input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+
+.intro button {
+    background-color: #3b8054; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.klikkverdi{
+    grid-area: klikkverdi;
+}
+.klikk{
+    grid-area: klikk;
+    width: 100%;
+    height: 50px;
+    background-color: #3b8054;
+    color: white;
+    font-size: 30px;
+}
+.liste{
+    grid-area: liste;
+    background-color: #cfdade;
+}
+.poengliste li:first-child{
+    font-size: 20px;
+    color: #db3340;
+}
+
+@media (min-width: 500px) {
+    div.grid{
+        grid-template-columns: 1fr 3fr;
+
+    }
+}

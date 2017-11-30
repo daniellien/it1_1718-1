@@ -7,9 +7,9 @@ firebase.initializeApp({
 var db = firebase.firestore();
 
 var klikkverdi = 0;
-var klikkverdiE = document.querySelector("#klikkverdi");
-var navnE = document.querySelector("#navn");
-var poenglisteE = document.querySelector("#poengliste");
+var klikkverdiE = document.querySelector(".klikkverdi");
+var navnE = document.querySelector(".navn");
+var poenglisteE = document.querySelector(".poengliste");
 
 var ref = db.collection("brukere");
 var orderQuaery = ref.orderBy("poeng", "desc");
@@ -18,7 +18,7 @@ orderQuaery.onSnapshot(function(data){
     poenglisteE.innerHTML = "";
     var objekt = data.docs;
     for(var x in objekt)
-        poenglisteE.innerHTML += "<li>" + objekt[x].data().navn + " " +  objekt[x].data().poeng + "</li>";
+        poenglisteE.innerHTML += "<li>" + objekt[x].data().navn + ":  " +  objekt[x].data().poeng + "</li>";
 });
 
 function klikk() {

@@ -3,26 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Klikkespill</title>
+    <link rel="stylesheet" href="stil.css">
 </head>
 <body>
 
     <div class="pakker">
+        <div class="header">
+            <h1>Klikkespillet</h1>
+        </div>
 
-        <h1>Klikkespillet</h1>
+        <div class="intro">
+            <input type="text" placeholder="Navnet ditt" class="navn" required>
+            <button onclick="start()">Start</button>
+        </div>
 
-        <input type="text" placeholder="Navnet ditt" id="navn">
-        <button onclick="start()">Start</button>
 
-        <h3 id="klikkverdi">0</h3>
-        <button onclick="klikk()">Klikk</button>
+        <h3 class="klikkverdi">0</h3>
+        <button class="klikk" onclick="klikk()">Klikk her så fort du kan</button>
 
+        <div class="liste">
         <h2>Topp 20</h2>
-        <ol id="poengliste"></ol>
+        <ol class="poengliste"></ol>
+        </div>
 
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>    <script src="main.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+    <script src="main.js"></script>
 
 
 </body>
