@@ -6,7 +6,6 @@ body{
 
 }
 .pakker{
-    max-width: 500px;
     margin: auto;
     display: grid;
     grid-template-areas:
@@ -67,8 +66,7 @@ body{
 }
 
 @media (min-width: 500px) {
-    div.grid{
-        grid-template-columns: 1fr 3fr;
-
+    div.pakker{
+        max-width: 500px;
     }
 }
