@@ -6,6 +6,7 @@ body{
 
 }
 .pakker{
+    width: 100%;
     margin: auto;
     display: grid;
     grid-template-areas:
@@ -65,8 +66,8 @@ body{
     color: #db3340;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 1000px) {
     div.pakker{
-        max-width: 500px;
+        max-width: 1000px;
     }
 }
