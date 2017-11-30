@@ -65,7 +65,7 @@ body{
     color: #db3340;
 }
 
-@media (min-width: 500px) {
+@media screen and (min-width: 500px) {
     div.pakker{
         max-width: 500px;
     }
