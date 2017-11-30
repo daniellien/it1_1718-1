@@ -18,7 +18,6 @@ body{
             "start klikkverdi"
             "klikk klikk"
             "liste liste"
-
 ;
     grid-gap: 1px;
 }
@@ -68,7 +67,7 @@ button.start{
 .klikk{
     grid-area: klikk;
     width: 100%;
-    height: 50px;
+    height: 150px;
     background-color: #3b8054;
     color: white;
     font-size: 30px;
