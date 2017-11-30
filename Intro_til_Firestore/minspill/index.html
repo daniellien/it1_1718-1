@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Klikkespill</title>
+</head>
+<body>
+
+    <div class="pakker">
+
+        <input type="text" placeholder="Navnet ditt" id="navn">
+        <button onclick="start()">Start</button>
+
+
+        <h3 id="klikkverdi">0</h3>
+        <button onclick="klikk()">Klikk</button>
+
+
+        <ol id="poengliste">
+
+        </ol>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>    <script src="main.js"></script>
+
+
+</body>
+</html>
