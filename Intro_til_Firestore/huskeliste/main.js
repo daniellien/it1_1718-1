@@ -19,9 +19,8 @@ knappE.addEventListener("click", function () {
     todoE.value = "";
 });
 
-
 var ref = db.collection("huskeliste");
-//var orderQuery = ref.orderBy("poeng", "desc");
+//var orderQuery = ref.orderBy("done", "desc");
 
 ref.onSnapshot(function(data){
     listeE.innerHTML = "";

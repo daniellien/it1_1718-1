@@ -12,9 +12,9 @@ var navnE = document.querySelector(".navn");
 var poenglisteE = document.querySelector(".poengliste");
 
 var ref = db.collection("brukere");
-var orderQuaery = ref.orderBy("poeng", "desc").limit(20);
+var orderQuery = ref.orderBy("poeng", "desc").limit(20);
 
-orderQuaery.onSnapshot(function(data){
+orderQuery.onSnapshot(function(data){
     poenglisteE.innerHTML = "";
     var objekt = data.docs;
     for(var x in objekt)
@@ -40,6 +40,3 @@ function start() {
 
     },4000);
 }
-
-
-
