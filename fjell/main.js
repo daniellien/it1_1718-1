@@ -21,6 +21,17 @@ sendKnapp.addEventListener('click', function () {
     var bilde = bildeInput.files[0];
     var uploadTask = storageRef.child(bilde.name).put(bilde);
 
+    uploadTask.on('state_changed',
+        function (){},
+        function (){},
+        function (){
+            db.collection('fjell').add({
+                fjellnavn: fjellnavnInput.value,
+                moh: mohInput.value*1,
+                fjellbilde: uploadTask.snapshot.downloadURL
+            });
+        }
+    );
 
 
     /*
