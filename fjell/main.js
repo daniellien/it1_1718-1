@@ -20,14 +20,9 @@ var progbarDiv = document.querySelector('.bar');
 var tempImg = document.querySelector('.tempImg');
 
 sendKnapp.addEventListener('click',function() {
-
     var storageRef = firebase.storage().ref('it-1/fjell');
     var bilde = bildeInput.files[0];
     var uploadTask = storageRef.child(bilde.name).put(bilde);
-    var klientIp;
-    $.getJSON("http://jsonip.com/?callback=?", function (data) {
-        klientIp = data.ip
-    });
 
     uploadTask.on('state_changed',
         function(snap){
@@ -40,7 +35,6 @@ sendKnapp.addEventListener('click',function() {
                 fjellnavn: fjellnavnInput.value,
                 moh: mohInput.value*1,
                 fjellbilde: uploadTask.snapshot.downloadURL,
-                klientIp: klientIp
             });
 
             statusDiv.innerHTML = "Opplasting ferdig";
@@ -54,15 +48,4 @@ sendKnapp.addEventListener('click',function() {
             },1000);
         }
     );
-});
-
-//Viser bildet man skal laste opp i img.bildeInput i html-filen
-bildeInput.addEventListener('change',function(){
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            tempImg.src = e.target.result;
-        }
-        reader.readAsDataURL(this.files[0]);
-        tempImg.style.display = "block";
-
 });
