@@ -57,6 +57,7 @@ button{
     background: #0081AF;
     color: white;
     font-size: 20px;
+    border-color: #0081AF;
 }
 .knapp:hover{
     background: #0070a4;
@@ -64,7 +65,7 @@ button{
 }
 
 .tempImg{
-    width: 150px;
-    margin-top: 10px;
+    width: 100%;
+    display: none;
 }
 

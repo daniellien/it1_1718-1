@@ -45,6 +45,7 @@ sendKnapp.addEventListener('click',function() {
                 progbarDiv.style.width = "0";
                 fjellForm.reset();
                 tempImg.src = "#";
+                tempImg.style.display = "none";
             },1000);
         }
     );
@@ -57,4 +58,6 @@ bildeInput.addEventListener('change',function(){
             tempImg.src = e.target.result;
         }
         reader.readAsDataURL(this.files[0]);
+        tempImg.style.display = "block";
+
 });
