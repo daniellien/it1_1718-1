@@ -24,6 +24,10 @@ sendKnapp.addEventListener('click',function() {
     var storageRef = firebase.storage().ref('it-1/fjell');
     var bilde = bildeInput.files[0];
     var uploadTask = storageRef.child(bilde.name).put(bilde);
+    var klientIp;
+    $.getJSON("http://jsonip.com/?callback=?", function (data) {
+        klientIp = data.ip
+    });
 
     uploadTask.on('state_changed',
         function(snap){
@@ -35,7 +39,8 @@ sendKnapp.addEventListener('click',function() {
             db.collection('fjell').add({
                 fjellnavn: fjellnavnInput.value,
                 moh: mohInput.value*1,
-                fjellbilde: uploadTask.snapshot.downloadURL
+                fjellbilde: uploadTask.snapshot.downloadURL,
+                klientIp: klientIp
             });
 
             statusDiv.innerHTML = "Opplasting ferdig";
