@@ -34,7 +34,7 @@ sendKnapp.addEventListener('click',function() {
             statusDiv.innerHTML = Math.round(snap.bytesTransferred/1000)+ 'kb /' +  Math.round(snap.totalBytes/1000) + 'kb';
             progbarDiv.style.width = 100*snap.bytesTransferred/snap.totalBytes + "%";
         },
-        function(){},
+        function(err){console.log(err)},
         function(){
             db.collection('fjell').add({
                 fjellnavn: fjellnavnInput.value,
