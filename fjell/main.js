@@ -16,12 +16,20 @@ var bildeInput = document.querySelector('.fjellbilde');
 var sendKnapp = document.querySelector('.send');
 
 sendKnapp.addEventListener('click', function () {
-    alert("Knappen virker!");
+
+    var storageRef = firebase.storage().ref('it-1/fjell');
+    var bilde = bildeInput.files[0];
+    var uploadTask = storageRef.child(bilde.name).put(bilde);
+
+
+
+    /*
+    db.collection('fjell').add({
+        fjellnavn: fjellnavnInput.value,
+        moh: mohInput.value*1,
+        fjellbilde: bildeInput.files[0].name
+    });
+    */
 });
 
 
-db.collection('fjell').add({
-    navn: "Vengetind",
-    moh: 1852,
-    bilde: ""
-});
