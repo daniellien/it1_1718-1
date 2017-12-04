@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Fjell</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stil.css">
 </head>
 <body>
 
-<h1>Fjell</h1>
-
-<input class="fjellnavn" type="text"> <br>
-<input class="moh" type="number"> <br>
-<input class="fjellbilde" type="file"> <br>
-<button class="send">Send</button> <br>
+<div class="formpakker">
+    <h2>Registrer nytt fjell</h2>
+    <form class="fjellForm">
+        <input class="fjellnavn inn" type="text" required placeholder="Navn på fjellet"> <br>
+        <input class="moh inn" type="number" required placeholder="moh"> <br>
+        <input class="fjellbilde knapp" id="fil" type="file" accept=".jpg, .jpeg, .png" required><br>
+        <img class="tempImg" src="#" alt="" />
+        <div class="status"></div>
+        <div class="bar"></div>
+        <button class="send knapp" type="button">Send</button> <br>
+    </form>
+</div>
 
 <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>

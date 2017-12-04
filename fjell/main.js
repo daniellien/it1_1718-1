@@ -10,27 +10,51 @@ firebase.initializeApp({
 // Initialize Cloud Firestore through Firebase
 var db = firebase.firestore();
 
+var fjellForm = document.querySelector('.fjellForm');
 var fjellnavnInput = document.querySelector('.fjellnavn');
 var mohInput = document.querySelector('.moh');
 var bildeInput = document.querySelector('.fjellbilde');
 var sendKnapp = document.querySelector('.send');
+var statusDiv = document.querySelector('.status');
+var progbarDiv = document.querySelector('.bar');
+var tempImg = document.querySelector('.tempImg');
 
-sendKnapp.addEventListener('click', function () {
+sendKnapp.addEventListener('click',function() {
+
     var storageRef = firebase.storage().ref('it-1/fjell');
     var bilde = bildeInput.files[0];
     var uploadTask = storageRef.child(bilde.name).put(bilde);
 
     uploadTask.on('state_changed',
-        function (){},
-        function (){},
-        function (){
+        function(snap){
+            statusDiv.innerHTML = Math.round(snap.bytesTransferred/1000)+ 'kb /' +  Math.round(snap.totalBytes/1000) + 'kb';
+            progbarDiv.style.width = 100*snap.bytesTransferred/snap.totalBytes + "%";
+        },
+        function(){},
+        function(){
             db.collection('fjell').add({
                 fjellnavn: fjellnavnInput.value,
                 moh: mohInput.value*1,
                 fjellbilde: uploadTask.snapshot.downloadURL
             });
+
+            statusDiv.innerHTML = "Opplasting ferdig";
+
+            setTimeout(function () {
+                statusDiv.innerHTML = "";
+                progbarDiv.style.width = "0";
+                fjellForm.reset();
+                tempImg.src = "#";
+            },1000);
         }
     );
 });
 
-
+//Viser bildet man skal laste opp i img.bildeInput i html-filen
+bildeInput.addEventListener('change',function(){
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            tempImg.src = e.target.result;
+        }
+        reader.readAsDataURL(this.files[0]);
+});
