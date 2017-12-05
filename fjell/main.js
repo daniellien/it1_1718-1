@@ -68,15 +68,10 @@ bildeInput.addEventListener('change',function(){
         tempImg.style.display = "block";
 });
 
-
 /**************** fjelloversikt ********************/
 
 // Henter og skriver ut fjellene
 var fjelloversiktDiv = document.querySelector('.fjelloversikt');
-
-function test() {
-}
-
 
 var ref = db.collection("fjell");
 ref.onSnapshot(function(data){
