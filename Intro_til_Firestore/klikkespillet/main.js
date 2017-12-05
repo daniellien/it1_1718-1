@@ -48,11 +48,15 @@ klikkE.addEventListener('click', function () {
     }
     else if(start){
         klart = true;
+
         setTimeout(function () {
             db.collection("spill").add({
                 navn: navn,
                 poeng: antKlikk
             });
+
+            klikkE.innerHTML = navn + " fikk " +  antKlikk + " poeng <br> <br> Trykk på start for å starte nytt spill";
+
             antKlikk=0;
             klart = false;
             start = false;
@@ -63,7 +67,10 @@ klikkE.addEventListener('click', function () {
 startE.addEventListener('click', function () {spill = "ikkeKlart";
    navn = prompt("Skriv inn navnet ditt");
    start = true;
-   klikkebarE.style.height = "1%";
+    klikkverdiE.innerHTML = "0";
+    klikkebarE.style.height = "1%";
+    klikkE.innerHTML = "Klikk så fort du kan når du er klar, " + navn;
+
 
 });
 
@@ -78,7 +85,6 @@ mappe.onSnapshot(function(data){
        listeE.innerHTML += "<tr><td>"+ plass +"</td><td>" + dokumenter[x].data().navn + "</td><td> " + dokumenter[x].data().poeng + "</td></tr>"
     }
     topscore = dokumenter[0].data().poeng;
-
     topscoreE.style.bottom = 100* topscore/grense + "%";
     topscoreE.innerHTML = "Rekord - " + dokumenter[0].data().navn + " - " + topscore + " poeng";
 

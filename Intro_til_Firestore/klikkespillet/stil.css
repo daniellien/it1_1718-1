@@ -8,12 +8,12 @@ body{
 
 
 .pakker{
-    width: 100%;
+    max-width: 1200px;
     height: 100%;
     margin: auto;
     display: grid;
-    grid-template-columns: 3fr 1fr 3fr 1fr;
-    grid-template-rows: 1fr 3fr 10fr;
+    grid-template-columns: 3fr 2fr 2fr 1fr;
+    grid-template-rows: 80px 100px 8fr;
     grid-template-areas:
             "header header header header"
             "liste klikkebar start klikkverdi"
@@ -81,7 +81,7 @@ button.start{
     grid-area: klikkverdi;
     background-color: #db3340;
     margin: 0;
-    padding-top: 90px;
+    padding-top: 20px;
     color: white;
     font-size: 50px;
     height: 100%;
@@ -107,12 +107,11 @@ button.start{
 table {
     border-collapse: collapse;
     width: 100%;
-    font-size: 25px;
+    font-size: 110%
 }
 
 th, td {
-    text-align: left;
-    padding: 8px;
+    padding: 5px;
     text-align: center;
 
 }
@@ -124,7 +123,7 @@ tbody tr:first-child{
 }
 thead {
     color: #033b42;
-    font-size: 200%;
+    font-size: 120%;
 }
 h2{
     font-size: 400%;
