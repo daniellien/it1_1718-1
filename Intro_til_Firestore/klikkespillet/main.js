@@ -18,7 +18,7 @@ var topscoreE = document.querySelector('.topscore');
 var antKlikk = 0;
 var klart = false;
 var start = false;
-var grense = 80;
+var grense = 67*80;
 var navn = "";
 
 var allowed = true;
@@ -41,7 +41,7 @@ klikkE.addEventListener('click', function () {
 
     if(klart){
         if(allowed){
-            antKlikk++;
+            antKlikk += 67;
             klikkverdiE.innerHTML = antKlikk;
             klikkebarE.style.height = 100*antKlikk/grense + "%";
         }
@@ -80,6 +80,7 @@ mappe.onSnapshot(function(data){
     topscore = dokumenter[0].data().poeng;
 
     topscoreE.style.bottom = 100* topscore/grense + "%";
+    topscoreE.innerHTML = "Rekord - " + dokumenter[0].data().navn + " - " + topscore + " poeng";
 
 });
 
