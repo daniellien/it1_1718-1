@@ -10,6 +10,7 @@ firebase.initializeApp({
 // Initialize Cloud Firestore through Firebase
 var db = firebase.firestore();
 
+// Henter elementer fra domen
 var fjellForm = document.querySelector('.fjellForm');
 var fjellnavnInput = document.querySelector('.fjellnavn');
 var mohInput = document.querySelector('.moh');
@@ -19,19 +20,24 @@ var statusDiv = document.querySelector('.status');
 var progbarDiv = document.querySelector('.bar');
 var tempImg = document.querySelector('.tempImg');
 
+// Laster opp fjellform til firestore
 sendKnapp.addEventListener('click',function() {
-
     var storageRef = firebase.storage().ref('it-1/fjell');
     var bilde = bildeInput.files[0];
     var uploadTask = storageRef.child(bilde.name).put(bilde);
 
+
     uploadTask.on('state_changed',
+        // Progresjon til bildeopplasting
         function(snap){
             statusDiv.innerHTML = Math.round(snap.bytesTransferred/1000)+ 'kb /' +  Math.round(snap.totalBytes/1000) + 'kb';
             progbarDiv.style.width = 100*snap.bytesTransferred/snap.totalBytes + "%";
         },
-        function(){},
+        // Feilmeldinger
+        function(error){console.log(error)},
+        // Opplasting av bildet er ferdig, laster nå opp til databasen
         function(){
+            // Legger til et nytt dokument i mappen fjell
             db.collection('fjell').add({
                 fjellnavn: fjellnavnInput.value,
                 moh: mohInput.value*1,
@@ -40,6 +46,7 @@ sendKnapp.addEventListener('click',function() {
 
             statusDiv.innerHTML = "Opplasting ferdig";
 
+            // Resetter og fjerner info i formen etter 2 sekunder
             setTimeout(function () {
                 statusDiv.innerHTML = "";
                 progbarDiv.style.width = "0";
@@ -51,13 +58,10 @@ sendKnapp.addEventListener('click',function() {
     );
 });
 
-//Viser bildet man skal laste opp i img.bildeInput i html-filen
+// Viser bildet man skal laste opp i img.bildeInput i html-filen
 bildeInput.addEventListener('change',function(){
         var reader = new FileReader();
-        reader.onload = function (e) {
-            tempImg.src = e.target.result;
-        }
+        reader.onload = function (e) { tempImg.src = e.target.result}
         reader.readAsDataURL(this.files[0]);
         tempImg.style.display = "block";
-
 });
