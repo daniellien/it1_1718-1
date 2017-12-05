@@ -10,7 +10,13 @@
 <body>
 <div class="pakker">
     <div class="header">
-        <h1>Klikkespillet</h1>
+        <h1>Klikkespillet til IT-1</h1>
+    </div>
+
+
+    <div class="klikkebar">
+        <div class="bar"></div>
+        <div class="topscore">Rekord</div>
     </div>
 
     <input type="text" placeholder="Navnet ditt" class="navn" required>
@@ -21,11 +27,22 @@
 
     <div class="liste">
         <h2>Topp 20</h2>
-        <ol class="poengliste"></ol>
+
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Plassering</th><th>Navn</th><th>Poeng</th>
+                </tr>
+            </thead>
+            <tbody class="poengliste">
+
+            </tbody>
+        </table>
     </div>
 </div>
 <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

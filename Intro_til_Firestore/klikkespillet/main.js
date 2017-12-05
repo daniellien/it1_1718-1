@@ -13,35 +13,73 @@ var startE = document.querySelector('.start');
 var klikkE = document.querySelector('.klikk');
 var klikkverdiE = document.querySelector('.klikkverdi');
 var listeE = document.querySelector('.poengliste');
-
+var klikkebarE = document.querySelector('.bar');
+var topscoreE = document.querySelector('.topscore');
 var antKlikk = 0;
+var klart = false;
+var start = false;
+var grense = 80;
+var navn = "";
 
-klikkE.addEventListener('click', function () {
-    antKlikk = antKlikk + 1;
-    klikkverdiE.innerHTML = antKlikk;
+var allowed = true;
+$(document).keydown(function(event) {
+    if (event.repeat != undefined) {
+        allowed = !event.repeat;
+    }
+    if (!allowed) return;
+    allowed = false;
+});
+$(document).keyup(function(e) {
+    allowed = true;
+});
+$(document).focus(function(e) {
+    allowed = false;
 });
 
-startE.addEventListener('click', function () {
-   antKlikk = 0;
-   klikkverdiE.innerHTML = antKlikk;
 
-   setTimeout(function () {
-       db.collection("spill").add({
-           navn: navnE.value,
-           poeng: antKlikk
-       });
-       alert(antKlikk);
-   }, 5000);
+klikkE.addEventListener('click', function () {
+
+    if(klart){
+        if(allowed){
+            antKlikk++;
+            klikkverdiE.innerHTML = antKlikk;
+            klikkebarE.style.height = 100*antKlikk/grense + "%";
+        }
+    }
+    else if(start){
+        klart = true;
+        setTimeout(function () {
+            db.collection("spill").add({
+                navn: navn,
+                poeng: antKlikk
+            });
+            antKlikk=0;
+            klart = false;
+            start = false;
+
+        }, 5000);
+    }
+});
+startE.addEventListener('click', function () {spill = "ikkeKlart";
+   navn = prompt("Skriv inn navnet ditt");
+   start = true;
+   klikkebarE.style.height = "1%";
+
 });
 
 var mappe = db.collection('spill').orderBy('poeng', 'desc').limit(20);
-
+var topscore = 0;
 mappe.onSnapshot(function(data){
     listeE.innerHTML = "";
-   var dokumenter = data.docs;
-   for(var x in dokumenter){
-       listeE.innerHTML += "<li>" + dokumenter[x].data().navn + ": " + dokumenter[x].data().poeng + "</li>"
-   }
+    var plass = 0;
+    var dokumenter = data.docs;
+    for(var x in dokumenter){
+       plass += 1;
+       listeE.innerHTML += "<tr><td>"+ plass +"</td><td>" + dokumenter[x].data().navn + "</td><td> " + dokumenter[x].data().poeng + "</td></tr>"
+    }
+    topscore = dokumenter[0].data().poeng;
+
+    topscoreE.style.bottom = 100* topscore/grense + "%";
 
 });
 
