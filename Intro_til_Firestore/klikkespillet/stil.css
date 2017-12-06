@@ -75,6 +75,10 @@ button.start{
     display: inline-block;
     font-size: 50px;
     height: 100%;
+    border-radius: 0;
+    margin: 0;
+    border: 0px;
+
 }
 
 .klikkverdi{
@@ -84,7 +88,6 @@ button.start{
     padding-top: 20px;
     color: white;
     font-size: 50px;
-    height: 100%;
 
 }
 .klikk{
@@ -95,7 +98,7 @@ button.start{
     background-color: #3b8054;
     color: white;
     font-size: 30px;
-    border-radius: 5px;
+    border-radius: 0;
 }
 .liste{
     grid-area: liste;
