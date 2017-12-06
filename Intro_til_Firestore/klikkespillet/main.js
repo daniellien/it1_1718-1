@@ -54,9 +54,7 @@ klikkE.addEventListener('click', function () {
                 navn: navn,
                 poeng: antKlikk
             });
-
             klikkE.innerHTML = navn + " fikk " +  antKlikk + " poeng <br> <br> Trykk på start for å starte nytt spill";
-
             antKlikk=0;
             klart = false;
             start = false;

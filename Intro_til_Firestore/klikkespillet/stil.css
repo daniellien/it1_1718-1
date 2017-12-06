@@ -91,6 +91,7 @@ button.start{
     grid-area: klikk;
     width: 100%;
     height: 100%;
+    min-height: 400px;
     background-color: #3b8054;
     color: white;
     font-size: 30px;
@@ -126,7 +127,8 @@ thead {
     font-size: 120%;
 }
 h2{
-    font-size: 400%;
+    font-size: 300%;
     color: #3b8054;
+    margin: 10px;
 
 }
