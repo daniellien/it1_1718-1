@@ -135,3 +135,23 @@ h2{
     margin: 10px;
 
 }
+
+@media only screen and (max-width: 600px){
+
+
+    .pakker{
+        width: 100%;
+        grid-template-columns: 1fr 8fr 3fr;
+        grid-template-rows: 80px 100px 8fr;
+        grid-template-areas:
+                "header header header"
+                "klikkebar start klikkverdi"
+                "klikkebar klikk klikk"
+                "liste liste liste"
+    ;
+        grid-gap: 0px;
+    }
+
+}
+
+
