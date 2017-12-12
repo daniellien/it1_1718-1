@@ -16,6 +16,10 @@ var listeE = document.querySelector('.poengliste');
 var klikkebarE = document.querySelector('.bar');
 var topscoreE = document.querySelector('.topscore');
 var fanfareAudio = document.querySelector('.fanfare');
+var aplausAudio = document.querySelector('.aplaus');
+var noAudio = document.querySelector('.no');
+
+
 var antKlikk = 0;
 var klart = false;
 var start = false;
@@ -51,7 +55,16 @@ klikkE.addEventListener('click', function () {
         klart = true;
 
         setTimeout(function () {
-            db.collection("spill").add({
+            if(antKlikk >= topscore){
+                fanfareAudio.play();
+                aplausAudio.play();
+            }
+            else{
+                noAudio.play();
+            }
+
+            console.log(antKlikk, topscore);
+            db.collection("klikkespillet2").add({
                 navn: navn,
                 poeng: antKlikk
             });
@@ -59,9 +72,6 @@ klikkE.addEventListener('click', function () {
             antKlikk=0;
             klart = false;
             start = false;
-
-            fanfareAudio.play();
-
         }, 5000);
     }
 });
@@ -71,11 +81,8 @@ startE.addEventListener('click', function () {spill = "ikkeKlart";
     klikkverdiE.innerHTML = "0";
     klikkebarE.style.height = "1%";
     klikkE.innerHTML = "Klikk så fort du kan når du er klar, " + navn;
-
-
 });
-
-var mappe = db.collection('spill').orderBy('poeng', 'desc').limit(20);
+var mappe = db.collection('klikkespillet2').orderBy('poeng', 'desc').limit(20);
 var topscore = 0;
 mappe.onSnapshot(function(data){
     listeE.innerHTML = "";
@@ -88,6 +95,5 @@ mappe.onSnapshot(function(data){
     topscore = dokumenter[0].data().poeng;
     topscoreE.style.bottom = 100* topscore/grense + "%";
     topscoreE.innerHTML = "Rekord - " + dokumenter[0].data().navn + " - " + topscore + " poeng";
-
 });
 
