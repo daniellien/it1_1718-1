@@ -12,7 +12,7 @@ var navnE = document.querySelector(".navn");
 var poenglisteE = document.querySelector(".poengliste");
 
 var ref = db.collection("brukere");
-var orderQuery = ref.orderBy("poeng", "desc").limit(20);
+var orderQuery = ref.orderBy("poeng", "desc");
 
 orderQuery.onSnapshot(function(data){
     poenglisteE.innerHTML = "";

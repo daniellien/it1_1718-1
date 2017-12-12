@@ -10,7 +10,7 @@ firebase.initializeApp({
 // Initialize Cloud Firestore through Firebase
 var db = firebase.firestore();
 
-/******************** fjellform ***********************/
+/********************** fjellform ***********************/
 
 // Henter elementer fra index.html (domen)
 var fjellForm = document.querySelector('.fjellForm');
@@ -68,17 +68,15 @@ bildeInput.addEventListener('change',function(){
         tempImg.style.display = "block";
 });
 
-/**************** fjelloversikt ********************/
+/******************** fjelloversikt *********************/
 
 // Henter og skriver ut fjellene
 var fjelloversiktDiv = document.querySelector('.fjelloversikt');
 
-var ref = db.collection("fjell");
-ref.onSnapshot(function(data){
+db.collection("fjell").orderBy('moh', 'desc').onSnapshot(function(data){
     fjelloversiktDiv.innerHTML = "";
     var dokument = data.docs;
     for(var x in dokument){
-        console.log(dokument[x].data().bilde);
         fjelloversiktDiv.innerHTML +=    "<div class='fjellboks' onclick='test()'>"+
                                             "<h3>" + dokument[x].data().fjellnavn + "</h3>"+
                                             "<img src=' " + dokument[x].data().fjellbilde + " '>"+
@@ -87,7 +85,3 @@ ref.onSnapshot(function(data){
     }
 
 });
-
-
-
-

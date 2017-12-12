@@ -6,10 +6,14 @@ firebase.initializeApp({
 var db = firebase.firestore();
 
 
+db.collection('mappe').add({
+
+});
+
 
 var usersRef = db.collection("users");
 var query = usersRef.where("first", "==", "Geir");
-var orderQuaery = usersRef.orderBy("first")
+var orderQuaery = usersRef.orderBy("first");
 
 
 //henter elementer fra domen

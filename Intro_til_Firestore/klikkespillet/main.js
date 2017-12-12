@@ -15,6 +15,7 @@ var klikkverdiE = document.querySelector('.klikkverdi');
 var listeE = document.querySelector('.poengliste');
 var klikkebarE = document.querySelector('.bar');
 var topscoreE = document.querySelector('.topscore');
+var fanfareAudio = document.querySelector('.fanfare');
 var antKlikk = 0;
 var klart = false;
 var start = false;
@@ -58,6 +59,8 @@ klikkE.addEventListener('click', function () {
             antKlikk=0;
             klart = false;
             start = false;
+
+            fanfareAudio.play();
 
         }, 5000);
     }

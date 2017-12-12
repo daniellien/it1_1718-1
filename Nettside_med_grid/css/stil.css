@@ -10,6 +10,13 @@ p::first-letter{
 div.main img{
     width: 50px;
 }
+div.main img:hover{
+    animation: utvid 0.2s forwards;
+}
+@keyframes utvid {
+    from {width: 100px;}
+    to {width: 200px;}
+}
 
 img.venstre{
     float: left;
@@ -54,7 +61,14 @@ nav a{
 
 }
 nav a:hover{
-    background-color:#05668d ;
+    background-color:#05668d;
+    animation: farge 2s forwards;
+
+}
+
+@keyframes farge {
+    from {background-color: #427AA1;}
+    to {background-color:#05668d;}
 }
 
 .header {
@@ -112,7 +126,7 @@ nav a:hover{
 }
 @media (min-width: 700px) {
     div.main img{
-        width: 150px;
+        width: 100px;
     }
     .grid {
         grid-template-columns: 1fr 4fr 1fr;
@@ -127,4 +141,6 @@ nav a:hover{
         justify-content: center;
     }
 }
+
+
 
