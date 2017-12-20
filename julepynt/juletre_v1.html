@@ -43,7 +43,7 @@
             for(var y = 0; y<25; y=y+1){
                 if(y%4===0){
                     if(y%4===0){
-                        pakkerE.innerHTML += '<span class="gold">+</span>';
+                        pakkerE.innerHTML += '<span class="gold">0</span>';
                     }
                 }
                 for(var x = 0; x<y+hakk; x=x+1){
@@ -55,13 +55,13 @@
                     }
                 }
                 if(y%4===0){
-                    pakkerE.innerHTML += '<span class="gold">+</span>';
+                    pakkerE.innerHTML += '<span class="gold">0</span>';
                 }
                 pakkerE.innerHTML += '<br>';
             }
-            pakkerE.innerHTML += '<span class="brown"> + + + <br></span>';
-            pakkerE.innerHTML += '<span class="brown"> + + + <br></span>';
-            pakkerE.innerHTML += '<span class="brown"> + + + <br></span>';
+            pakkerE.innerHTML += '<span class="brown"> |+++| <br></span>';
+            pakkerE.innerHTML += '<span class="brown"> |+++| <br></span>';
+            pakkerE.innerHTML += '<span class="brown"> |___| <br></span>';
             julelys++;
             if(julelys>5){
                 julelys=3;
