@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Juletre</title>
+    <style>
+        body{
+            background: red;
+        }
+        .pakker{
+            width: 500px;
+            margin: auto;
+            background: black;
+            text-align: center;
+        }
+        .green{
+            color: green;
+        }
+        .red{
+            color: red;
+        }
+        .gold{
+            color: gold;
+        }
+        .brown{
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pakker"></div>
+
+    <script>
+        var pakkerE = document.querySelector('.pakker');
+        var julelys = 3;
+        var hakk = 1;
+        setInterval(function () {
+            pakkerE.innerHTML = '';
+            pakkerE.innerHTML += '<span class="gold"> + <br></span>';
+            pakkerE.innerHTML += '<span class="gold"> + + + <br></span>';
+            pakkerE.innerHTML += '<span class="gold"> + <br></span>';
+            for(var y = 0; y<25; y=y+1){
+                for(var x = 0; x<y+hakk; x=x+1){
+                    if((x*y)%julelys===0){
+                        pakkerE.innerHTML += '<span class="red"> + </span>';
+                    }
+                    else{
+                        pakkerE.innerHTML += '<span class="green"> + </span>';
+                    }
+                }
+                pakkerE.innerHTML += '<br>';
+            }
+            pakkerE.innerHTML += '<span class="brown"> + + + <br></span>';
+            pakkerE.innerHTML += '<span class="brown"> + + + <br></span>';
+            pakkerE.innerHTML += '<span class="brown"> + + + <br></span>';
+            julelys++;
+            if(julelys>5){
+                julelys=3;
+            }
+        },300);
+
+
+
+
+    </script>
+
+</body>
+</html>
