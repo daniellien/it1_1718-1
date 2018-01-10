@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #00618e;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.skjemapakker{
+    max-width: 1024px;
+    margin: auto;
+    box-shadow: #033b42 -5px 5px 20px;
+    display: grid;
+}
+
+.skjemainfo{
+    background-color: #0093d7;
+    color: #004462;
+    text-align: center;
+    padding: 1em;
+}
+.skjemainfo ul{
+    list-style: none;
+    padding: 0;
+}
+
+.skjemaform{
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+
+}
+.skjemaform p{
+    margin: 0;
+}
+.skjemaform .full_bredde{
+    grid-column: 1 / 3;
+}
+
+.skjemaform > *{
+    padding: 1em;
+}
+
+.skjemaform textarea, .skjemaform input, .skjemaform button{
+    font-size: 20px;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+}
+
+.skjemaform button{
+    background-color: #0070a4;
+    color: white;
+}
+
+.skjemaform button:hover{
+    background-color: #033b42;
+    cursor: pointer;
+
+}
+.skjemaform label{
+    display: block;
+    color: #a9a9a9;
+}
+
+@media(min-width: 700px){
+    .skjemapakker{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .skjemainfo h3{
+        font-size: 30px;
+    }
+    .skjemainfo ul{
+        font-size: 20px;
+    }
+}
