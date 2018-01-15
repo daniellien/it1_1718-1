@@ -5,7 +5,9 @@ body{
     background-color: #00618e;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+h1{
+    text-align: center;
+}
 .skjemapakker{
     max-width: 1024px;
     margin: auto;
@@ -47,6 +49,18 @@ body{
     width: 100%;
     margin: 0;
     padding: 10px;
+}
+
+.skjemaform select{
+    width: 100%;
+    font-size: 1em;
+    margin-top: 3px;
+    height: 42px;
+    border: 1px solid #a9a9a9;;
+    border-radius: 20px;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
 }
 
 .skjemaform button{
