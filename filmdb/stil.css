@@ -1,22 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
 *{
     box-sizing: border-box;
 }
 body{
-    background-color: #00618e;
+    background-color: #a9a9a9;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+body{
+    margin: 0;
+}
+
+
 h1{
     text-align: center;
 }
+.grid {
+    max-width: 1024px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.grid > * {
+    padding: 10px;
+}
+
+nav ul {
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li{
+    margin: 0;
+    flex: 1 1;
+}
+
+nav a{
+    color: #EBF2FA;
+    width: 100%;
+    display: block;
+    padding: 1.15em 3%;
+    text-align: center;
+    text-decoration: none;
+
+}
+nav a:hover{
+    background-color:#05668d;
+    animation: farge 2s forwards;
+
+}
+
+.header {
+    grid-area: header;
+    background-color: #3b8054;
+
+}
+.main {
+    grid-area: main;
+    background-color: #EBF2FA;
+}
+.nav {
+    grid-area: nav;
+    background-color: #427AA1;
+    padding: 0;
+}
+.footer {
+    grid-area: footer;
+    background-color: #679436;
+}
+.grid {
+    display: grid;
+    grid-gap: 2px;
+    grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "footer";
+}
+
 .skjemapakker{
     max-width: 1024px;
     margin: auto;
-    box-shadow: #033b42 -5px 5px 20px;
     display: grid;
 }
 
 .skjemainfo{
-    background-color: #0093d7;
+
     color: #004462;
     text-align: center;
     padding: 1em;
@@ -78,7 +155,42 @@ h1{
     color: #a9a9a9;
 }
 
-@media(min-width: 700px){
+
+@media (min-width: 500px) {
+    div.main img{
+        width: 100px;
+    }
+    .grid {
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas:
+                "header header"
+                "nav    nav"
+                "main  main"
+                "footer  footer";
+    }
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+@media (min-width: 700px) {
+    div.main img{
+        width: 100px;
+    }
+    .grid {
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-areas:
+                "header header  header"
+                "nav    main    main"
+                "nav    main    main"
+                "footer footer  footer"
+    }
+    nav ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+
     .skjemapakker{
         grid-template-columns: 1fr 1fr;
     }
@@ -90,3 +202,4 @@ h1{
         font-size: 20px;
     }
 }
+
