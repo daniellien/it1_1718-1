@@ -86,6 +86,24 @@ nav a:hover{
             "footer";
 }
 
+div.filmer{
+    max-width: 1024px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+div.film{
+    width: 200px;
+    height: 100px;
+    font-size: 20px;
+    background-color: #033b42;
+    color: goldenrod;
+    box-shadow: #033b42 2px 2px 2px ;
+
+}
+
+
 .skjemapakker{
     max-width: 1024px;
     margin: auto;

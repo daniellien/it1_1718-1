@@ -20,7 +20,13 @@
     </nav>
     <div class="main">
 
-        <input type="text" id="searchInput">
+        <select name="" id="inputGenre">
+            <option value="Drama">Drama</option>
+            <option value="Triller">Triller</option>
+            <option value="Action">Action</option>
+            <option value="Komedie">Komedie</option>
+            <option value="Grøsser">Grøsser</option>
+        </select>
         <div class="filmer">
 
         </div>
@@ -47,17 +53,13 @@
     var db = firebase.firestore();
 
     var filmerE = document.querySelector('.filmer');
-    var searchInput = document.querySelector('#searchInput');
+    var inputGenere = document.querySelector('#inputGenre');
     var search = "";
-    printMovies();
-    searchInput.addEventListener('keyup', printMovies);
-
-    function printMovies() {
-        search = searchInput.value;
-        console.log(search);
+    inputGenere.addEventListener('change', function () {
+        search = inputGenere.value;
         filmerE.innerHTML = "";
         var ref = db.collection('filmdb');
-        var query = ref.where('title', '>', search).where('title', '<', search+"å");;
+        var query = ref.where('genre', '==', search);
 
         query.onSnapshot(function (data) {
             var objekt = data.docs;
@@ -68,7 +70,8 @@
                     "</div>";
             }
         });
-    }
+    });
+
 
 
 
