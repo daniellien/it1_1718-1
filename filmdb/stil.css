@@ -1,18 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-
 *{
     box-sizing: border-box;
 }
-body{
+body {
     background-color: #a9a9a9;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-body{
     margin: 0;
+    z-index: -3;
+
 }
-
-
 h1{
     text-align: center;
 }
@@ -25,7 +22,6 @@ h1{
 .grid > * {
     padding: 10px;
 }
-
 nav ul {
     flex-wrap: wrap;
     flex-flow: row wrap;
@@ -36,7 +32,6 @@ nav ul {
     margin: 0;
     padding: 0;
 }
-
 nav li{
     margin: 0;
     flex: 1 1;
@@ -52,19 +47,21 @@ nav a{
 
 }
 nav a:hover{
-    background-color:#05668d;
+    background-color: #f1f1f1;
     animation: farge 2s forwards;
 
 }
 
 .header {
     grid-area: header;
-    background-color: #3b8054;
+    background-color: #427AA1;
 
 }
 .main {
     grid-area: main;
     background-color: #EBF2FA;
+    z-index: -2;
+
 }
 .nav {
     grid-area: nav;
@@ -92,17 +89,39 @@ div.filmer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
+
 }
 div.film{
-    width: 200px;
-    height: 100px;
+    width: 100%;
+    height: 147px;
     font-size: 20px;
-    background-color: #033b42;
-    color: goldenrod;
+    background-color: rgba(255,255,255,0.4);
+    color: #045761;
+    text-align: center;
+    padding: 5px;
+    position: relative;
+}
+div.film:hover{
     box-shadow: #033b42 2px 2px 2px ;
-
 }
 
+div.film h4{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    display: inline;
+}
+div.filmer .year{
+    font-size: 10px;
+}
+div.film .genre{
+    font-size: 15px;
+}
+div.film img{
+    float: left;
+    margin-left: -5px;
+    margin-top: -5px;
+}
 
 .skjemapakker{
     max-width: 1024px;

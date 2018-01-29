@@ -19,14 +19,8 @@
         </ul>
     </nav>
     <div class="main">
-
         <input type="text" id="searchInput">
-        <div class="filmer">
-
-        </div>
-
-
-
+        <div class="filmer"></div>
     </div>
 </div>
 
@@ -45,7 +39,6 @@
 
     // Initialize Cloud Firestore through Firebase
     var db = firebase.firestore();
-
     var filmerE = document.querySelector('.filmer');
     var searchInput = document.querySelector('#searchInput');
     var search = "";
@@ -57,23 +50,20 @@
         console.log(search);
         filmerE.innerHTML = "";
         var ref = db.collection('filmdb');
-        var query = ref.where('title', '>', search).where('title', '<', search+"å");;
+        var query = ref.where('title', '>', search).where('title', '<', search+"å");
 
         query.onSnapshot(function (data) {
             var objekt = data.docs;
             for(var x in objekt){
-
                 filmerE.innerHTML +=    "<div class='film'>"+
-                    objekt[x].data().title +
-                    "</div>";
+                                            "<img src="+ objekt[x].data().picture + ">"+
+                                            "<H4>"+objekt[x].data().title+"</H4>"+
+                                            "<p class='year'>"+objekt[x].data().year+"</p>"+
+                                            "<p class='genre'>"+objekt[x].data().genre+"</p>"+
+                                        "</div>";
             }
         });
     }
-
-
-
-
 </script>
-
 </body>
 </html>

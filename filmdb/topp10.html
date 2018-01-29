@@ -19,15 +19,7 @@
         </ul>
     </nav>
     <div class="main">
-
-        
-        <select name="" id="inputGenre">
-            <option value="Drama">Drama</option>
-            <option value="Triller">Triller</option>
-            <option value="Action">Action</option>
-            <option value="Komedie">Komedie</option>
-            <option value="Grøsser">Grøsser</option>
-        </select>
+        <h2>Topp 10</h2>
         <div class="filmer">
 
         </div>
@@ -54,24 +46,23 @@
     var filmerE = document.querySelector('.filmer');
     var inputGenere = document.querySelector('#inputGenre');
     var search = "";
-    inputGenere.addEventListener('change', function () {
-        search = inputGenere.value;
-        filmerE.innerHTML = "";
-        var ref = db.collection('filmdb');
-        var query = ref.where('genre', '==', search);
+    filmerE.innerHTML = "";
+    var ref = db.collection('filmdb');
+    var query = ref.orderBy("rating", "desc").limit(10);
 
-        query.onSnapshot(function (data) {
-            var objekt = data.docs;
-            for(var x in objekt){
+    query.onSnapshot(function (data) {
+        var objekt = data.docs;
+        for(var x in objekt){
 
-                filmerE.innerHTML +=    "<div class='film'>"+
-                    "<H4>"+objekt[x].data().title+"</H4>"+
-                    "<p class='year'>"+objekt[x].data().year+"</p>"+
-                    "<p class='genre'>"+objekt[x].data().genre+"</p>"+
+            filmerE.innerHTML +=    "<div class='film'>"+
+                "<H4>"+objekt[x].data().title+"</H4>"+
+                "<p class='year'>"+objekt[x].data().year+"</p>"+
+                "<p class='genre'>"+objekt[x].data().genre+"</p>"+
+                "<p class='rating'>"+objekt[x].data().rating+"</p>"+
 
-                    "</div>";
-            }
-        });
+
+                "</div>";
+        }
     });
 
 

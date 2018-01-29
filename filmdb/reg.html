@@ -47,6 +47,10 @@
                     <input type="range" min="0" max="10" value="5" step="0.1" id="inputRating">
                 </p>
                 <p class="full_bredde">
+                    <label>Bilde</label>
+                    <input type="text" id="inputPicture">
+                </p>
+                <p class="full_bredde">
                     <button id="buttonAdd" >Legg til film</button>
                 </p>
             </div>
@@ -74,10 +78,12 @@
     var inputTitle      = document.querySelector('#inputTitle');
     var inputGenre      = document.querySelector('#inputGenre');
     var inputYear       = document.querySelector('#inputYear');
+    var inputPicture    = document.querySelector('#inputPicture');
     var inputRating     = document.querySelector('#inputRating');
     var outputRating    = document.querySelector('#outputRating');
     var buttonAdd       = document.querySelector('#buttonAdd');
     var eSkjemainfo     = document.querySelector('.skjemainfo');
+
 
     outputRating.innerHTML = inputRating.value;
     inputRating.oninput = function () {
@@ -89,15 +95,17 @@
             title:  inputTitle.value,
             genre:  inputGenre.value,
             year:   inputYear.value,
+            picture:inputPicture.value,
             rating: inputRating.value*1
         })
         .then(function(docRef) {
             console.log("Filmen er lagt til i databasen med ID: ", docRef.id);
-            eSkjemainfo.innerHTML = '<h3>Filmen, ' + inputTitle.value + ', ble lagt til i databasen </h3>';
+            eSkjemainfo.innerHTML = '<h3>Filmen, ' + inputTitle.value + ', ble lagt til i databasen </h3> <img src=""' + inputPicture.value + '">';
 
             inputTitle.value = '';
             inputGenre.value = '';
             inputYear.value = '';
+            inputPicture.value = '';
             inputRating.value = '';
             outputRating.innerHTML = '5';
 
