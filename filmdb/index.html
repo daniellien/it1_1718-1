@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="stil.css">
 </head>
 <body>
-
+<input type="text">
 <div class="grid">
     <header class="header"><h1>FilmDB</h1></header>
     <nav class="nav">
@@ -16,10 +16,10 @@
             <li><a href="bunn10.html">Bunn 10</a></li>
             <li><a href="kategori.html">Kategori</a></li>
             <li><a href="reg.html">Registrer</a></li>
+            <input type="text">
         </ul>
     </nav>
     <div class="main">
-        <input type="text" id="searchInput">
         <div class="filmer"></div>
     </div>
 </div>
@@ -50,9 +50,8 @@
         console.log(search);
         filmerE.innerHTML = "";
         var ref = db.collection('filmdb');
-        var query = ref.where('title', '>', search).where('title', '<', search+"å");
 
-        query.onSnapshot(function (data) {
+        ref.onSnapshot(function (data) {
             var objekt = data.docs;
             for(var x in objekt){
                 filmerE.innerHTML +=    "<div class='film'>"+

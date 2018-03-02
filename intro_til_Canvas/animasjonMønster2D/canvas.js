@@ -12,7 +12,7 @@ function animate() {
 
     requestAnimationFrame(animate);
 
-    c.fillStyle = 'rgba(0, 0, 0, 0.01)';
+    c.fillStyle = 'rgba(0, 0, 0, 0.05)';
     c.fillRect(0, 0, canvas.width, canvas.height);
 
     temp = temp + fart;
@@ -27,7 +27,7 @@ function animate() {
         c.beginPath();
         c.arc(x, y, radius, 0, 2 * Math.PI);
         c.strokeStyle = 'rgba(' + r + ',' + g + ',' + b + ',1)';
-        c.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',0.4)';
+        c.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',0.8)';
         c.fill();
         c.stroke();
     }

@@ -42,15 +42,14 @@
                 ctx.arc(x-(i-ny)*2.5,y,10,0,2*Math.PI);
                 ctx.stroke();
                 ctx.fill();
-
-            }else{
+            }
+            else{
                 ctx.fillStyle = 'rgb(' + farge + ',' + farge + ',0)';
                 ctx.fillRect(x-(i-ny)*2.5,y,10,10);
-
             }
         }
         ny+=0.1
-    },20);
+    },10);
 
 
 </script>

@@ -35,7 +35,6 @@ function animate() {
     c.drawImage(img, musX-50, musY-130, 100, 100);
 
     temp = temp + fart;
-
     for (var i = 0; i < 40; i++) {
         var x = Math.cos(Math.log(temp)+i*temp/25)* 10*i + musX;
         var y = Math.sin(Math.log10(temp)+i*temp/25)* 10*i + musY;
@@ -46,7 +45,7 @@ function animate() {
         c.beginPath();
         c.arc(x, y, radius, 0, 2 * Math.PI);
         c.strokeStyle = 'rgba(' + r + ',' + g + ',' + b + ',1)';
-        c.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',0.8)';
+        c.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',1';
         c.fill();
         c.stroke();
     }

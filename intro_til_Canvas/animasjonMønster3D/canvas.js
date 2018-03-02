@@ -20,10 +20,10 @@ function animate() {
     for (var i = 0; i < 10; i++) {
         var x = Math.sin(temp+i/4)* 200 + canvas.width/2;
         var y = Math.cos(temp+i/4)* 30 + i*canvas.height/10;
-        var radius = (Math.cos(temp)+1.1)* 10;
-        var r = 255;
-        var g = 0;
-        var b = 0;
+        var radius = (Math.cos(temp)+1.1)* 10-i*10;
+        var r = 55;
+        var g = 20*i;
+        var b = 20*i;
         c.beginPath();
         c.arc(x, y, radius, 0, 2 * Math.PI);
         c.strokeStyle = 'rgba(' + r + ',' + g + ',' + b + ',1)';

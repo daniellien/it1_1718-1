@@ -8,7 +8,7 @@
 <body>
 
 <div class="grid">
-    <header class="header"><h1>FilmDB</h1></header>
+    <header class="header"><h1>Bilregister</h1></header>
     <nav class="nav">
         <ul>
             <li><a href="index.html">Alle</a></li>
@@ -19,10 +19,23 @@
         </ul>
     </nav>
     <div class="main">
-
         <div class="skjemapakker">
 
-            <div class="skjemainfo"></div>
+            <div class="skjemaform">
+                <p class="full_bredde">
+                    <label>Fornavn</label>
+                    <input type="text" id="inputFirstName">
+                </p>
+                <p class="full_bredde">
+                    <label>Etternavn</label>
+                    <input type="text" id="inputSurname">
+                </p>
+
+                <p class="full_bredde">
+                    <button id="buttonAddOwner">Registrer eier</button>
+                </p>
+            </div>
+
             <div class="skjemaform">
                 <p>
                     <label>Tittel</label>
@@ -75,18 +88,13 @@
     // Initialize Cloud Firestore through Firebase
     var db = firebase.firestore();
 
-
-    var timeStampInMs = window.performance && window.performance.now && window.performance.timing && window.performance.timing.navigationStart ? window.performance.now() + window.performance.timing.navigationStart : Date.now();
-
-    console.log(timeStampInMs, Date.now());
-
-    var inputTitle      = document.querySelector('#inputTitle');
-    var inputGenre      = document.querySelector('#inputGenre');
+    var inputFirstName  = document.querySelector('#inputFirstName');
+    var inputSurname    = document.querySelector('#inputSurname');
     var inputYear       = document.querySelector('#inputYear');
     var inputPicture    = document.querySelector('#inputPicture');
     var inputRating     = document.querySelector('#inputRating');
     var outputRating    = document.querySelector('#outputRating');
-    var buttonAdd       = document.querySelector('#buttonAdd');
+    var buttonAddOwner       = document.querySelector('#buttonAddOwner');
     var eSkjemainfo     = document.querySelector('.skjemainfo');
 
 
@@ -95,33 +103,28 @@
         outputRating.innerHTML = inputRating.value;
     }
 
-    buttonAdd.addEventListener('click', function () {
-        var timestamp = firebase.database.ServerValue.TIMESTAMP;
+    buttonAddOwner.addEventListener('click', function () {
         db.collection("filmdb").add({
-            title:  inputTitle.value,
-            genre:  inputGenre.value,
-            year:   inputYear.value,
-            picture:inputPicture.value,
-            rating: inputRating.value*1,
-            time: timeStampInMs,
-            time2: timestamp
-        })
-        .then(function(docRef) {
-            console.log("Filmen er lagt til i databasen med ID: ", docRef.id);
-            eSkjemainfo.innerHTML = '<h3>Filmen, ' + inputTitle.value + ', ble lagt til i databasen </h3> <img src=""' + inputPicture.value + '">';
-
-            inputTitle.value = '';
-            inputGenre.value = '';
-            inputYear.value = '';
-            inputPicture.value = '';
-            inputRating.value = '';
-            outputRating.innerHTML = '5';
-
+            firstName:  inputFirstName.value,
+            surname:    inputSurname.value,
 
         })
-        .catch(function(error) {
-            console.error("Feilmelding ved opplasting til databasen: ", error);
-        });
+            .then(function(docRef) {
+                console.log("Filmen er lagt til i databasen med ID: ", docRef.id);
+                eSkjemainfo.innerHTML = '<h3>Filmen, ' + inputTitle.value + ', ble lagt til i databasen </h3> <img src=""' + inputPicture.value + '">';
+
+                inputTitle.value = '';
+                inputGenre.value = '';
+                inputYear.value = '';
+                inputPicture.value = '';
+                inputRating.value = '';
+                outputRating.innerHTML = '5';
+
+
+            })
+            .catch(function(error) {
+                console.error("Feilmelding ved opplasting til databasen: ", error);
+            });
     });
 </script>
 

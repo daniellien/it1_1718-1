@@ -75,9 +75,11 @@ startE.addEventListener('click', function () {spill = "ikkeKlart";
 
 });
 
-var mappe = db.collection('spill').orderBy('poeng', 'desc').limit(20);
+    var ref = db.collection('spill');
+    var query = ref.orderBy('poeng', 'desc').limit(20);
+
 var topscore = 0;
-mappe.onSnapshot(function(data){
+query.onSnapshot(function(data){
     listeE.innerHTML = "";
     var plass = 0;
     var dokumenter = data.docs;
